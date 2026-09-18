@@ -9,3 +9,4 @@ db/*.sqlite-wal
 .DS_Store
 *.log
 .env
+
