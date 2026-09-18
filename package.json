@@ -1,0 +1,12 @@
+{
+  "name": "saad-tours-and-travels",
+  "version": "1.0.0",
+  "description": "Bespoke journeys across India - website & backend platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["travel", "tourism", "india", "luxury", "sqlite", "nodejs"],
+  "author": "",
+  "license": "MIT"
+}

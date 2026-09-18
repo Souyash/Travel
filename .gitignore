@@ -1,0 +1,11 @@
+# Dependencies
+node_modules/
+
+# Database files
+db/*.sqlite-shm
+db/*.sqlite-wal
+
+# System & temporary files
+.DS_Store
+*.log
+.env
