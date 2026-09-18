@@ -4,9 +4,14 @@
   var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
 
   /* nav scroll */
-  var nav=$("#nav");
-  function onScroll(){ if(nav) nav.classList.toggle("scrolled",window.scrollY>60); }
-  onScroll(); window.addEventListener("scroll",onScroll,{passive:true});
+  var headerMaster = document.getElementById("headerMaster") || document.querySelector(".header-master");
+  var nav = document.getElementById("nav") || document.querySelector(".nav");
+  function onScroll(){
+    var isScrolled = window.scrollY > 40;
+    if(headerMaster) headerMaster.classList.toggle("scrolled", isScrolled);
+    if(nav) nav.classList.toggle("scrolled", isScrolled);
+  }
+  onScroll(); window.addEventListener("scroll", onScroll, {passive:true});
 
   /* mobile menu */
   var mm=$("#mm");
@@ -321,12 +326,16 @@
       var itin = pkg.itinerary;
       if (typeof itin === 'string') { try { itin = JSON.parse(itin); } catch(e){ itin = []; } }
       if (Array.isArray(itin)) {
-        itin.forEach(function(day){
-          var node = document.createElement("div");
-          node.className = "timeline-node";
-          node.innerHTML = '<div class="timeline-day">Day ' + (day.day || '') + '</div>' +
-            '<div class="timeline-body"><h5>' + (day.title || '') + '</h5><p>' + (day.desc || '') + '</p></div>';
-          itTimeline.appendChild(node);
+        itin.forEach(function(day, idx){
+          var rawDay = String(day.day || (idx + 1));
+          var dayNum = rawDay.replace(/[^0-9]/g, '') || (idx + 1);
+          var dayDetail = day.detail || day.desc || day.description || '';
+          var item = document.createElement("div");
+          item.className = "timeline-item";
+          item.innerHTML = '<div class="timeline-node">' + dayNum + '</div>' +
+            '<div class="timeline-title">' + (day.title || ('Day ' + dayNum)) + '</div>' +
+            '<div class="timeline-desc">' + dayDetail + '</div>';
+          itTimeline.appendChild(item);
         });
       }
     }
@@ -338,10 +347,10 @@
       if (typeof incs === 'string') { try { incs = JSON.parse(incs); } catch(e){ incs = []; } }
       if (Array.isArray(incs)) {
         incs.forEach(function(inc){
-          var pill = document.createElement("div");
-          pill.className = "inclusion-pill";
-          pill.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>' + inc + '</span>';
-          itInclusions.appendChild(pill);
+          var item = document.createElement("div");
+          item.className = "inc-item";
+          item.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>' + inc + '</span>';
+          itInclusions.appendChild(item);
         });
       }
     }
@@ -496,6 +505,7 @@
           '<div class="sr-meta">' + item.region + ' · ' + item.duration + ' · <b style="color:var(--primary);">' + item.price + '</b></div>' +
         '</div>';
       div.addEventListener("click", function(){
+        if (searchWrap) searchWrap.classList.remove("open");
         searchDropdown.classList.remove("active");
         openItineraryModal(item.slug);
       });
@@ -505,10 +515,12 @@
 
   if (searchInput && searchDropdown) {
     searchInput.addEventListener("focus", function(){
+      if (searchWrap) searchWrap.classList.add("open");
       searchDropdown.classList.add("active");
       renderSearchResults();
     });
     searchInput.addEventListener("input", function(){
+      if (searchWrap) searchWrap.classList.add("open");
       searchDropdown.classList.add("active");
       renderSearchResults();
     });
@@ -533,6 +545,7 @@
 
   document.addEventListener("click", function(e){
     if (searchWrap && !searchWrap.contains(e.target)) {
+      searchWrap.classList.remove("open");
       if (searchDropdown) searchDropdown.classList.remove("active");
     }
   });

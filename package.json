@@ -7,6 +7,9 @@
     "start": "node server.js"
   },
   "keywords": ["travel", "tourism", "india", "luxury", "sqlite", "nodejs"],
+  "engines": {
+    "node": ">=22.x"
+  },
   "author": "",
   "license": "MIT"
 }

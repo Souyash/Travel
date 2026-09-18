@@ -1,14 +1,31 @@
-const { DatabaseSync } = require('node:sqlite');
 const path = require('node:path');
 const fs = require('node:fs');
 
-const dbDir = path.join(__dirname);
-if (!fs.existsSync(dbDir)) {
-  fs.mkdirSync(dbDir, { recursive: true });
+let DatabaseSync;
+try {
+  DatabaseSync = require('node:sqlite').DatabaseSync;
+} catch (e) {
+  console.warn('node:sqlite not natively available in this Node runtime');
 }
 
-const dbPath = path.join(dbDir, 'data.sqlite');
-const db = new DatabaseSync(dbPath);
+let dbPath = path.join(__dirname, 'data.sqlite');
+// On Vercel / AWS Lambda, the root directory is read-only.
+// We copy the database to /tmp so write operations (inquiries, callbacks, WAL) succeed without EROFS.
+if (process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME) {
+  const tmpPath = path.join('/tmp', 'data.sqlite');
+  try {
+    if (!fs.existsSync(tmpPath) && fs.existsSync(dbPath)) {
+      fs.copyFileSync(dbPath, tmpPath);
+    }
+    if (fs.existsSync(tmpPath)) {
+      dbPath = tmpPath;
+    }
+  } catch (err) {
+    console.warn('Could not copy sqlite to /tmp:', err.message);
+  }
+}
+
+const db = DatabaseSync ? new DatabaseSync(dbPath) : null;
 
 // Enable WAL mode & foreign keys for maximum concurrency & reliability
 db.exec(`
