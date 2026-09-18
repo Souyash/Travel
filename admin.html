@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Admin Portal — Saad Tour & Travels</title>
+  <title>Admin Portal — Tours&Co</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;500;600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
@@ -247,9 +247,9 @@
 
 <header>
   <a href="/" class="brand">
-    <img src="logo.png" alt="Saad Logo"/>
+    <img src="logo.png" alt="Tours&Co Logo"/>
     <div>
-      <h1>Saad Tour & Travels</h1>
+      <h1>Tours&Co</h1>
       <small>Operations Dashboard</small>
     </div>
   </a>
@@ -546,9 +546,23 @@ function escapeHtml(str) {
   return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
+async function loadDestFilter() {
+  try {
+    const res = await fetch('/api/destinations');
+    const list = await res.json();
+    const sel = document.getElementById('filterDest');
+    if (sel && Array.isArray(list)) {
+      const cur = sel.value;
+      sel.innerHTML = '<option value="all">All Destinations</option>' + list.map(d => `<option value="${escapeHtml(d.name)}">${escapeHtml(d.name)}</option>`).join('');
+      sel.value = cur || 'all';
+    }
+  } catch(e){}
+}
+
 function loadAll() {
   loadStats();
   loadCallbacks();
+  loadDestFilter();
   loadInquiries();
   loadSubscribers();
 }

@@ -154,9 +154,16 @@
   fab.addEventListener("click",wake);
 })();
 
-/* --- Backend API & Modal Interactions --- */
+/* --- Backend API, Modals, Live Search & Interactive Features --- */
 (function(){
   "use strict";
+
+  // Cache tours data from window.TOURS_DATA
+  var toursData = window.TOURS_DATA || [];
+  fetch('/api/destinations')
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(data){ if(data && data.length) toursData = data; })
+    .catch(function(){});
 
   // Toast notifier
   var toastBox = document.getElementById("toastBox");
@@ -175,6 +182,7 @@
   // Modals management
   var inquiryModal = document.getElementById("inquiryModal");
   var callbackModal = document.getElementById("callbackModal");
+  var itineraryModal = document.getElementById("itineraryModal");
 
   function openModal(modal) {
     if (!modal) return;
@@ -189,15 +197,18 @@
   function closeAllModals() {
     closeModal(inquiryModal);
     closeModal(callbackModal);
+    closeModal(itineraryModal);
   }
 
   // Close triggers
   var inquiryClose = document.getElementById("inquiryClose");
   var callbackClose = document.getElementById("callbackClose");
+  var itineraryClose = document.getElementById("itineraryClose");
   if (inquiryClose) inquiryClose.addEventListener("click", function(){ closeModal(inquiryModal); });
   if (callbackClose) callbackClose.addEventListener("click", function(){ closeModal(callbackModal); });
+  if (itineraryClose) itineraryClose.addEventListener("click", function(){ closeModal(itineraryModal); });
 
-  [inquiryModal, callbackModal].forEach(function(modal){
+  [inquiryModal, callbackModal, itineraryModal].forEach(function(modal){
     if (!modal) return;
     modal.addEventListener("click", function(e){
       if (e.target === modal) closeModal(modal);
@@ -205,48 +216,331 @@
   });
 
   document.addEventListener("keydown", function(e){
-    if (e.key === "Escape") closeAllModals();
+    if (e.key === "Escape") {
+      closeAllModals();
+      var sDrop = document.getElementById("searchDropdown");
+      if (sDrop) sDrop.classList.remove("active");
+    }
   });
+
+  // Helper to open inquiry modal pre-filled with tour & date
+  function openInquiryWithTour(tourName, tourDate) {
+    var destSelect = document.getElementById("iqDest");
+    var dateInput = document.getElementById("iqDate");
+    if (destSelect && tourName) {
+      var found = false;
+      var query = tourName.toLowerCase();
+      for (var i = 0; i < destSelect.options.length; i++) {
+        var optVal = destSelect.options[i].value.toLowerCase();
+        if (optVal.indexOf(query) !== -1 || query.indexOf(optVal) !== -1) {
+          destSelect.selectedIndex = i;
+          found = true;
+          break;
+        }
+      }
+      if (!found) {
+        // match by first word
+        var firstWord = query.split(/[\s,:]+/)[0];
+        for (var j = 0; j < destSelect.options.length; j++) {
+          if (destSelect.options[j].value.toLowerCase().indexOf(firstWord) !== -1) {
+            destSelect.selectedIndex = j;
+            break;
+          }
+        }
+      }
+    }
+    if (dateInput && tourDate) {
+      dateInput.value = tourDate;
+    }
+    openModal(inquiryModal);
+  }
+
+  // Helper to open itinerary modal for a destination slug
+  function openItineraryModal(slug) {
+    if (!slug) return;
+    var pkg = null;
+    for (var i = 0; i < toursData.length; i++) {
+      if (toursData[i].slug === slug) {
+        pkg = toursData[i];
+        break;
+      }
+    }
+    if (!pkg) {
+      // Fetch from API as fallback
+      fetch('/api/destinations/' + encodeURIComponent(slug))
+        .then(function(r){ return r.json(); })
+        .then(function(data){
+          if (data && !data.error) renderItineraryData(data);
+        })
+        .catch(function(){});
+      return;
+    }
+    renderItineraryData(pkg);
+  }
+
+  function renderItineraryData(pkg) {
+    var itImg = document.getElementById("itImg");
+    var itCat = document.getElementById("itCat");
+    var itBadge = document.getElementById("itBadge");
+    var itTitle = document.getElementById("itTitle");
+    var itDur = document.getElementById("itDur");
+    var itPrice = document.getElementById("itPrice");
+    var itBottomPrice = document.getElementById("itBottomPrice");
+    var itDesc = document.getElementById("itDesc");
+    var itHighlights = document.getElementById("itHighlights");
+    var itTimeline = document.getElementById("itTimeline");
+    var itInclusions = document.getElementById("itInclusions");
+
+    if (itImg) { itImg.src = pkg.image_url || ''; itImg.alt = pkg.name || 'Tour'; }
+    if (itCat) itCat.textContent = (pkg.category || 'Curated').toUpperCase();
+    if (itBadge) itBadge.textContent = pkg.badge || 'Signature Stay';
+    if (itTitle) itTitle.textContent = pkg.name || pkg.title || 'Tour Package';
+    if (itDur) itDur.textContent = pkg.duration || '';
+    if (itPrice) itPrice.textContent = pkg.price || '';
+    if (itBottomPrice) itBottomPrice.textContent = pkg.price || '';
+    if (itDesc) itDesc.textContent = pkg.description || '';
+
+    // Highlights
+    if (itHighlights) {
+      itHighlights.innerHTML = '';
+      var hl = pkg.highlights;
+      if (typeof hl === 'string') { try { hl = JSON.parse(hl); } catch(e){ hl = []; } }
+      if (Array.isArray(hl)) {
+        hl.forEach(function(item){
+          var sp = document.createElement("span");
+          sp.className = "h-tag";
+          sp.textContent = item;
+          itHighlights.appendChild(sp);
+        });
+      }
+    }
+
+    // Itinerary timeline
+    if (itTimeline) {
+      itTimeline.innerHTML = '';
+      var itin = pkg.itinerary;
+      if (typeof itin === 'string') { try { itin = JSON.parse(itin); } catch(e){ itin = []; } }
+      if (Array.isArray(itin)) {
+        itin.forEach(function(day){
+          var node = document.createElement("div");
+          node.className = "timeline-node";
+          node.innerHTML = '<div class="timeline-day">Day ' + (day.day || '') + '</div>' +
+            '<div class="timeline-body"><h5>' + (day.title || '') + '</h5><p>' + (day.desc || '') + '</p></div>';
+          itTimeline.appendChild(node);
+        });
+      }
+    }
+
+    // Inclusions
+    if (itInclusions) {
+      itInclusions.innerHTML = '';
+      var incs = pkg.inclusions;
+      if (typeof incs === 'string') { try { incs = JSON.parse(incs); } catch(e){ incs = []; } }
+      if (Array.isArray(incs)) {
+        incs.forEach(function(inc){
+          var pill = document.createElement("div");
+          pill.className = "inclusion-pill";
+          pill.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>' + inc + '</span>';
+          itInclusions.appendChild(pill);
+        });
+      }
+    }
+
+    // Wire up booking button inside itinerary modal
+    var btnBook = document.getElementById("btnItineraryBook");
+    if (btnBook) {
+      btnBook.onclick = function(){
+        closeModal(itineraryModal);
+        openInquiryWithTour(pkg.name, pkg.departure_date);
+      };
+    }
+
+    openModal(itineraryModal);
+  }
 
   // Open Inquiry Modal Triggers
   function setupPlanBtn(btn, defaultDest) {
     if (!btn) return;
     btn.addEventListener("click", function(e){
       e.preventDefault();
-      var destSelect = document.getElementById("iqDest");
-      if (destSelect && defaultDest) {
-        for (var i = 0; i < destSelect.options.length; i++) {
-          if (destSelect.options[i].value.toLowerCase().indexOf(defaultDest.toLowerCase()) !== -1) {
-            destSelect.selectedIndex = i;
-            break;
-          }
-        }
-      }
-      openModal(inquiryModal);
+      openInquiryWithTour(defaultDest || "All India", "");
     });
   }
 
   setupPlanBtn(document.getElementById("btnPlanNav"));
   setupPlanBtn(document.getElementById("btnPlanMobile"));
   setupPlanBtn(document.getElementById("btnPlanHero"));
+  setupPlanBtn(document.getElementById("btnRequestCustomDate"));
 
-  // Connect destination cards to pre-select inquiry
-  var dcards = document.querySelectorAll(".dcard");
-  dcards.forEach(function(card){
-    var titleEl = card.querySelector("h3");
-    var destName = titleEl ? titleEl.textContent.trim() : "";
-    var arw = card.querySelector(".arw");
-    if (arw) {
-      arw.style.cursor = "pointer";
-      setupPlanBtn(arw, destName);
+  // Connect destination cards View Itinerary & Book buttons
+  function bindCatalogButtons() {
+    var itBtns = document.querySelectorAll(".btn-card-itinerary");
+    itBtns.forEach(function(btn){
+      btn.addEventListener("click", function(e){
+        e.stopPropagation();
+        var slug = btn.getAttribute("data-slug");
+        openItineraryModal(slug);
+      });
+    });
+
+    var bookBtns = document.querySelectorAll(".btn-card-book");
+    bookBtns.forEach(function(btn){
+      btn.addEventListener("click", function(e){
+        e.stopPropagation();
+        var tour = btn.getAttribute("data-tour");
+        var date = btn.getAttribute("data-date");
+        openInquiryWithTour(tour, date);
+      });
+    });
+
+    var depBtns = document.querySelectorAll(".btn-dep-book");
+    depBtns.forEach(function(btn){
+      btn.addEventListener("click", function(e){
+        e.stopPropagation();
+        var tour = btn.getAttribute("data-tour");
+        var date = btn.getAttribute("data-date");
+        openInquiryWithTour(tour, date);
+      });
+    });
+  }
+  bindCatalogButtons();
+
+  // Tabbed Catalog Filtering
+  var catalogTabs = document.getElementById("catalogTabs");
+  if (catalogTabs) {
+    var tabBtns = catalogTabs.querySelectorAll(".tab-btn");
+    tabBtns.forEach(function(btn){
+      btn.addEventListener("click", function(){
+        tabBtns.forEach(function(b){
+          b.classList.remove("active");
+          b.setAttribute("aria-selected", "false");
+        });
+        btn.classList.add("active");
+        btn.setAttribute("aria-selected", "true");
+
+        var filter = btn.getAttribute("data-filter");
+        var cards = document.querySelectorAll("#destinationsGrid .dcard");
+        cards.forEach(function(card){
+          var cat = card.getAttribute("data-category");
+          if (filter === "all" || cat === filter) {
+            card.style.display = "";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+  }
+
+  // Live Tour Search Engine with Autocomplete Dropdown
+  var searchInput = document.getElementById("tourSearchInput");
+  var searchClear = document.getElementById("tourSearchClear");
+  var searchWrap = document.getElementById("headerSearchWrap");
+  var searchDropdown = document.getElementById("searchDropdown");
+  var searchResultsList = document.getElementById("searchResultsList");
+  var searchCount = document.getElementById("searchCount");
+  var quickChips = document.querySelectorAll(".quick-filter-chip");
+  var activeCategory = "all";
+
+  function filterTours() {
+    if (!toursData || !toursData.length) return [];
+    var q = searchInput ? searchInput.value.trim().toLowerCase() : "";
+    return toursData.filter(function(item){
+      // Category filter
+      if (activeCategory !== "all" && item.category !== activeCategory) {
+        return false;
+      }
+      if (!q) return true;
+      var title = (item.name || "").toLowerCase();
+      var region = (item.region || "").toLowerCase();
+      var desc = (item.description || "").toLowerCase();
+      var hl = Array.isArray(item.highlights) ? item.highlights.join(" ").toLowerCase() : "";
+      return title.indexOf(q) !== -1 || region.indexOf(q) !== -1 || desc.indexOf(q) !== -1 || hl.indexOf(q) !== -1;
+    });
+  }
+
+  function renderSearchResults() {
+    if (!searchResultsList || !searchDropdown) return;
+    var matches = filterTours();
+    var q = searchInput ? searchInput.value.trim() : "";
+
+    if (searchClear) {
+      searchClear.style.display = q.length > 0 ? "block" : "none";
+    }
+
+    if (searchCount) {
+      if (q.length > 0) {
+        searchCount.textContent = matches.length + " Journey" + (matches.length === 1 ? "" : "s") + " Found";
+      } else {
+        searchCount.textContent = "Featured Journeys (" + matches.length + ")";
+      }
+    }
+
+    searchResultsList.innerHTML = "";
+
+    if (matches.length === 0) {
+      searchResultsList.innerHTML = '<div style="padding:22px;text-align:center;color:var(--text-light);font-size:0.86rem;line-height:1.5;">No journeys match "<b>' + q + '</b>".<br/><span style="color:var(--accent);font-size:0.8rem;margin-top:6px;display:block;">Try "Himalayas", "Kerala", "Safari", or "Europe"</span></div>';
+      return;
+    }
+
+    matches.slice(0, 7).forEach(function(item){
+      var div = document.createElement("div");
+      div.className = "search-result-item";
+      div.setAttribute("data-slug", item.slug);
+      div.innerHTML = '<img src="' + item.image_url + '" class="sr-img" alt="' + item.name + '" />' +
+        '<div class="sr-info">' +
+          '<div class="sr-title-row">' +
+            '<div class="sr-title">' + item.name + '</div>' +
+            (item.badge ? '<div class="sr-badge">' + item.badge + '</div>' : '') +
+          '</div>' +
+          '<div class="sr-meta">' + item.region + ' · ' + item.duration + ' · <b style="color:var(--primary);">' + item.price + '</b></div>' +
+        '</div>';
+      div.addEventListener("click", function(){
+        searchDropdown.classList.remove("active");
+        openItineraryModal(item.slug);
+      });
+      searchResultsList.appendChild(div);
+    });
+  }
+
+  if (searchInput && searchDropdown) {
+    searchInput.addEventListener("focus", function(){
+      searchDropdown.classList.add("active");
+      renderSearchResults();
+    });
+    searchInput.addEventListener("input", function(){
+      searchDropdown.classList.add("active");
+      renderSearchResults();
+    });
+  }
+
+  if (searchClear && searchInput) {
+    searchClear.addEventListener("click", function(){
+      searchInput.value = "";
+      renderSearchResults();
+      searchInput.focus();
+    });
+  }
+
+  quickChips.forEach(function(chip){
+    chip.addEventListener("click", function(){
+      quickChips.forEach(function(c){ c.classList.remove("active"); });
+      chip.classList.add("active");
+      activeCategory = chip.getAttribute("data-cat");
+      renderSearchResults();
+    });
+  });
+
+  document.addEventListener("click", function(e){
+    if (searchWrap && !searchWrap.contains(e.target)) {
+      if (searchDropdown) searchDropdown.classList.remove("active");
     }
   });
 
-  // FAB Click -> Open Callback Modal instead of direct tel navigation on desktop
+  // FAB Click -> Open Callback Modal on desktop
   var fab = document.getElementById("callFab");
   if (fab) {
     fab.addEventListener("click", function(e){
-      // On mobile devices, let standard telephone link fire if tapped, on larger screens open modal
       if (window.innerWidth > 640) {
         e.preventDefault();
         openModal(callbackModal);

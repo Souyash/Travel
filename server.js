@@ -87,8 +87,24 @@ const server = http.createServer(async (req, res) => {
 
       // 2. Destinations
       if (pathname === '/api/destinations' && method === 'GET') {
-        const destinations = db.getAllDestinations();
+        const filter = {
+          category: parsedUrl.query.category
+        };
+        const destinations = db.getAllDestinations(filter);
         return sendJson(res, 200, destinations);
+      }
+
+      const destMatch = pathname.match(/^\/api\/destinations\/([a-zA-Z0-9_-]+)$/);
+      if (destMatch && method === 'GET') {
+        const dest = db.getDestinationBySlug(destMatch[1]);
+        if (!dest) return sendError(res, 404, 'Destination not found');
+        return sendJson(res, 200, dest);
+      }
+
+      // 2b. Fixed Departures (Mercury Tour Operator feature)
+      if (pathname === '/api/departures' && method === 'GET') {
+        const departures = db.getUpcomingDepartures();
+        return sendJson(res, 200, departures);
       }
 
       // 3. Stats
@@ -156,7 +172,7 @@ const server = http.createServer(async (req, res) => {
             success: true,
             message: result.alreadySubscribed
               ? 'You are already subscribed to our field notes.'
-              : 'Welcome aboard. You are now subscribed to Saad Tour & Travels field notes.',
+              : 'Welcome aboard. You are now subscribed to Tours&Co field notes.',
             ...result
           });
         }
@@ -217,7 +233,7 @@ const server = http.createServer(async (req, res) => {
         const csvContent = [headers.join(','), ...rows.map(r => r.join(','))].join('\r\n');
         res.writeHead(200, {
           'Content-Type': 'text/csv; charset=utf-8',
-          'Content-Disposition': 'attachment; filename="saad_tours_inquiries.csv"'
+          'Content-Disposition': 'attachment; filename="toursco_inquiries.csv"'
         });
         return res.end(csvContent);
       }
@@ -270,10 +286,13 @@ const server = http.createServer(async (req, res) => {
 
 server.listen(PORT, () => {
   console.log(`====================================================`);
-  console.log(` Saad Tour & Travels Server`);
+  console.log(` Tours&Co Server`);
   console.log(` Running at: http://localhost:${PORT}`);
   console.log(` Admin Portal: http://localhost:${PORT}/admin`);
   console.log(` API Health: http://localhost:${PORT}/api/health`);
   console.log(`====================================================`);
 });
+
+module.exports = server;
+
 

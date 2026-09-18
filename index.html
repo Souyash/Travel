@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-<title>Saad Tour &amp; Travels — Journeys across India</title>
+<title>Tours&amp;Co — Journeys across India</title>
 <meta name="description" content="Bespoke, unhurried journeys across India — Kashmir, Ladakh, Rajasthan, Kerala, Goa and beyond."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -19,35 +19,92 @@
 </head>
 <body>
 
-<!-- NAV -->
-<header class="nav" id="nav">
-  <div class="wrap nav-in">
-    <a class="brand" href="#top">
-      <span class="mark">
-        <img src="logo.png" />
-        <!-- <svg viewBox="0 0 24 24" fill="none"><path d="M4 15c3-1 5-5 8-5s5 4 8 5" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/><path d="M12 3v3.5M12 17.5V21" stroke="#D4AF37" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="12" r="1.9" fill="#D4AF37"/></svg> -->
-      </span>
-      <span><b>Saad</b><small>Tour &amp; Travels</small></span>
-    </a>
-    <nav class="nav-links">
-      <a href="#destinations">Destinations</a>
-      <a href="#collection">Collections</a>
-      <a href="#map">Explore</a>
-      <a href="#stories">Stories</a>
-      <a href="#journal">Journal</a>
-    </nav>
-    <a href="#cta" class="btn btn-primary nav-cta" id="btnPlanNav">Plan your journey</a>
-    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+<!-- MASTER HEADER -->
+<header class="header-master" id="headerMaster">
+  <!-- TOP UTILITY BAR (Mercury Tour Operator + Tours&Co Blend) -->
+  <div class="top-bar" id="topBar">
+    <div class="wrap top-bar-in">
+      <div class="top-left">
+        <a href="tel:+916291929266" class="top-link" title="Call Concierge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>+91 62919 29266</span>
+        </a>
+        <a href="mailto:concierge@toursco.com" class="top-link for-desktop" title="Email Concierge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span>concierge@toursco.com</span>
+        </a>
+        <span class="top-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z" stroke="#D4AF37" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#D4AF37" stroke-width="2" stroke-linecap="round"/></svg>
+          <span>Govt. Approved Tour Operator · Ministry of Tourism &amp; WBTDC</span>
+        </span>
+      </div>
+      <div class="top-right for-desktop">
+        <a href="#departures" class="top-pill">Fixed Departures 2026-27</a>
+        <div class="top-socials">
+          <a href="https://wa.me/916291929266" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN NAV -->
+  <div class="nav" id="nav">
+    <div class="wrap nav-in">
+      <a class="brand" href="#top">
+        <span class="mark">
+          <img src="logo.png" alt="Tours&Co"/>
+        </span>
+        <span><b>Tours</b><small>&amp; Co</small></span>
+      </a>
+      <nav class="nav-links">
+        <a href="#destinations">Curations</a>
+        <a href="#departures">Departures</a>
+        <a href="#landscapes">Landscapes</a>
+        <a href="#map">Map</a>
+        <a href="#stories">Stories</a>
+        <a href="#journal">Journal</a>
+      </nav>
+
+      <!-- LIVE TOUR SEARCH BOX -->
+      <div class="header-search-wrap" id="headerSearchWrap">
+        <div class="header-search-box" id="searchBoxContainer">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input type="text" id="tourSearchInput" placeholder="Search 20+ tours..." autocomplete="off"/>
+          <button type="button" id="tourSearchClear" class="search-clear-btn" aria-label="Clear Search">&times;</button>
+        </div>
+        <!-- FLOATING DROPDOWN -->
+        <div class="search-dropdown" id="searchDropdown">
+          <div class="search-dropdown-head">
+            <span class="search-count" id="searchCount">Featured Packages</span>
+            <div class="search-quick-tags">
+              <button type="button" class="quick-filter-chip active" data-cat="all">All</button>
+              <button type="button" class="quick-filter-chip" data-cat="domestic">India</button>
+              <button type="button" class="quick-filter-chip" data-cat="himalayan">North East</button>
+              <button type="button" class="quick-filter-chip" data-cat="international">Abroad</button>
+            </div>
+          </div>
+          <div class="search-results-list" id="searchResultsList">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+
+      <a href="#cta" class="btn btn-primary nav-cta" id="btnPlanNav">Plan your journey</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
   </div>
 </header>
 <div class="mobile-menu" id="mm">
   <button class="mm-close" id="mmClose" aria-label="Close">&times;</button>
-  <a href="#destinations">Destinations</a>
-  <a href="#collection">Collections</a>
-  <a href="#map">Explore</a>
+  <a href="#destinations">Curations</a>
+  <a href="#departures">Fixed Departures</a>
+  <a href="#landscapes">Landscapes</a>
+  <a href="#map">Explore Map</a>
   <a href="#stories">Stories</a>
   <a href="#journal">Journal</a>
-  <a href="#cta" class="btn btn-ghost" id="btnPlanMobile">Plan your journey</a>
+  <a href="tel:+916291929266" style="font-size:1.1rem;margin-top:10px;color:var(--gold);">Call: +91 62919 29266</a>
+  <a href="#cta" class="btn btn-ghost" id="btnPlanMobile" style="margin-top:14px;">Plan your journey</a>
 </div>
 
 <!-- HERO -->
@@ -82,51 +139,926 @@
   <div class="hero-dots" id="heroDots" aria-hidden="true"></div>
 </section>
 
-<!-- TRUST -->
-<section class="trust"><div class="wrap"><div class="row">
-  <div class="item"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 6.9H22l-6 4.4 2.3 7-6.3-4.5L5.7 20l2.3-7-6-4.4h7.6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>4.9/5 from 2,400+ travellers</div>
-  <div class="item"><svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>100% custom itineraries</div>
-  <div class="item"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>24/7 on-trip support</div>
-  <div class="item"><svg viewBox="0 0 24 24" fill="none"><path d="M4 8h16M4 8V6a2 2 0 012-2h12a2 2 0 012 2v2M4 8v10a2 2 0 002 2h12a2 2 0 002-2V8" stroke="currentColor" stroke-width="1.5"/></svg>18 years across India</div>
-</div></div></section>
-
-<!-- DESTINATIONS -->
-<section class="sec" id="destinations"><div class="wrap">
-  <div class="head-row reveal">
-    <div class="head"><span class="eyebrow">Popular destinations</span><h2>Where will India take you?</h2><p>Six regions, six completely different Indias — each with its own light, pace and story.</p></div>
-    <a href="#map" class="link-arrow">See all on the map<svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<!-- TRUST & ACCREDITATIONS (Mercury Tour Operator + Tours&Co Blend) -->
+<section class="trust">
+  <div class="wrap">
+    <div class="row">
+      <div class="item">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <div>
+          <b>Ministry of Tourism &amp; WBTDC</b>
+          <small>Approved Tour Operator</small>
+        </div>
+      </div>
+      <div class="item">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 6.9H22l-6 4.4 2.3 7-6.3-4.5L5.7 20l2.3-7-6-4.4h7.6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <div>
+          <b>4.9 / 5 Guest Rating</b>
+          <small>From 2,800+ Explorers</small>
+        </div>
+      </div>
+      <div class="item">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="1.6"/></svg>
+        <div>
+          <b>Fixed Group Departures</b>
+          <small>Guaranteed Dates 2026-27</small>
+        </div>
+      </div>
+      <div class="item">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <div>
+          <b>24/7 On-Trip Concierge</b>
+          <small>Private Chauffeur &amp; Care</small>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="dgrid"><article class="dcard reveal"><img src="https://images.unsplash.com/photo-1715457573748-8e8a70b2c1be?q=80&w=1100&auto=format&fit=crop" alt="Kashmir" loading="lazy"/>
-<span class="tag">Himalayan</span><span class="price">₹48,000</span>
-<div class="body"><span class="st">Jammu &amp; Kashmir</span><h3>Kashmir</h3><p class="desc">Shikara mornings on Dal Lake, meadows in bloom and saffron light over the Pir Panjal.</p>
-<div class="meta"><span class="dur"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/><path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>6 days</span>
-<span class="arw"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div></article>
-<article class="dcard reveal"><img src="https://images.unsplash.com/photo-1617824077360-7a77db40aae1?q=80&w=1100&auto=format&fit=crop" alt="Ladakh" loading="lazy"/>
-<span class="tag">High Altitude</span><span class="price">₹62,000</span>
-<div class="body"><span class="st">Ladakh</span><h3>Ladakh</h3><p class="desc">The world's highest roads, cobalt lakes and monasteries clinging to the moonscape.</p>
-<div class="meta"><span class="dur"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/><path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>8 days</span>
-<span class="arw"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div></article>
-<article class="dcard reveal"><img src="https://images.unsplash.com/photo-1638904998527-a451c1fbd1cb?q=80&w=1100&auto=format&fit=crop" alt="Rajasthan" loading="lazy"/>
-<span class="tag">Heritage</span><span class="price">₹74,000</span>
-<div class="body"><span class="st">Rajasthan</span><h3>Rajasthan</h3><p class="desc">Lake palaces, honey-coloured forts and the slow drama of the Thar at dusk.</p>
-<div class="meta"><span class="dur"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/><path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>9 days</span>
-<span class="arw"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div></article>
-<article class="dcard reveal"><img src="https://images.unsplash.com/photo-1704365159747-1f7b8913044f?q=80&w=1100&auto=format&fit=crop" alt="Kerala" loading="lazy"/>
-<span class="tag">Backwaters</span><span class="price">₹52,000</span>
-<div class="body"><span class="st">Kerala</span><h3>Kerala</h3><p class="desc">Drift the palm-lined backwaters, then climb into the mist of Munnar's tea country.</p>
-<div class="meta"><span class="dur"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/><path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>7 days</span>
-<span class="arw"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div></article>
-<article class="dcard reveal"><img src="https://images.unsplash.com/photo-1624554305378-0f440dd3a8c1?q=80&w=1100&auto=format&fit=crop" alt="Goa" loading="lazy"/>
-<span class="tag">Coastal</span><span class="price">₹36,000</span>
-<div class="body"><span class="st">Goa</span><h3>Goa</h3><p class="desc">Golden sand, Portuguese lanes and long, unhurried sunsets over the Arabian Sea.</p>
-<div class="meta"><span class="dur"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/><path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>5 days</span>
-<span class="arw"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div></article>
-<article class="dcard reveal"><img src="https://images.unsplash.com/photo-1589983846997-04788035bc83?q=80&w=1100&auto=format&fit=crop" alt="Meghalaya" loading="lazy"/>
-<span class="tag">Hidden India</span><span class="price">₹44,000</span>
-<div class="body"><span class="st">Meghalaya</span><h3>Meghalaya</h3><p class="desc">Living-root bridges, the cleanest villages on earth and Asia's greenest hills.</p>
-<div class="meta"><span class="dur"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/><path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>6 days</span>
-<span class="arw"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div></article></div>
-</div></section>
+</section>
+
+<!-- CURATED TOUR COLLECTIONS (Tabbed Browser) -->
+<section class="sec" id="destinations">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div class="head">
+        <span class="eyebrow">Curated Collections</span>
+        <h2>Handcrafted Journeys Across India &amp; Beyond</h2>
+        <p>From Himalayan sanctuaries and royal palace circuits to exotic tropical islands and wildlife deltas.</p>
+      </div>
+      <a href="#departures" class="link-arrow">
+        <span>View Upcoming Departures</span>
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <!-- CATEGORY FILTER TABS -->
+    <div class="catalog-nav reveal">
+      <div class="catalog-tabs" id="catalogTabs" role="tablist">
+        <button class="tab-btn active" data-filter="all" role="tab" aria-selected="true">All Curations (19)</button>
+        <button class="tab-btn" data-filter="domestic" role="tab" aria-selected="false">Domestic Grandeur (7)</button>
+        <button class="tab-btn" data-filter="himalayan" role="tab" aria-selected="false">Himalayas &amp; North East (4)</button>
+        <button class="tab-btn" data-filter="international" role="tab" aria-selected="false">International (6)</button>
+        <button class="tab-btn" data-filter="expedition" role="tab" aria-selected="false">Expeditions (2)</button>
+      </div>
+    </div>
+
+    <!-- TOUR CARDS GRID -->
+    <div class="dgrid" id="destinationsGrid">
+
+      <!-- Kashmir -->
+      <article class="dcard reveal" data-category="domestic" data-slug="kashmir">
+        <img src="https://images.unsplash.com/photo-1715457573748-8e8a70b2c1be?q=80&w=1100&auto=format&fit=crop" alt="Kashmir" loading="lazy"/>
+        <div class="card-top-tags">
+          <span class="tag">Himalayan</span>
+          <span class="badge-special">Signature Stay</span>
+        </div>
+        <div class="body">
+          <span class="price">From ₹48,000</span>
+          <span class="st">Jammu &amp; Kashmir</span>
+          <h3>Kashmir: Crown of Himalayas</h3>
+          <div class="card-dep-row">
+            <span>6 Days 5 Nights</span>
+            <span class="card-dep-pill">Next: Oct 15, 2026 · 6 seats</span>
+          </div>
+          <p class="desc">Shikara mornings on Dal Lake, cedarwood houseboat nights, and alpine meadows of Gulmarg.</p>
+          <div class="card-highlights">
+            <span class="h-tag">Luxury Houseboat</span>
+            <span class="h-tag">Gondola Phase 2</span>
+            <span class="h-tag">Betaab Valley</span>
+          </div>
+          <div class="card-actions">
+            <button type="button" class="btn-card-itinerary" data-slug="kashmir">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              View Itinerary
+            </button>
+            <button type="button" class="btn-card-book" data-tour="Kashmir: Crown of Himalayas" data-date="Oct 15, 2026">
+              Book Journey
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Ladakh -->
+      <article class="dcard reveal" data-category="domestic" data-slug="ladakh">
+        <img src="https://images.unsplash.com/photo-1617824077360-7a77db40aae1?q=80&w=1100&auto=format&fit=crop" alt="Ladakh" loading="lazy"/>
+        <div class="card-top-tags">
+          <span class="tag">High Altitude</span>
+          <span class="badge-special">Adventure Luxury</span>
+        </div>
+        <div class="body">
+          <span class="price">From ₹62,000</span>
+          <span class="st">Ladakh</span>
+          <h3>Ladakh: High Desert Stargazing</h3>
+          <div class="card-dep-row">
+            <span>8 Days 7 Nights</span>
+            <span class="card-dep-pill">Next: Nov 02, 2026 · 4 seats</span>
+          </div>
+          <p class="desc">Traverse Khardung La at 5,359m, luxury dome glamping beside turquoise Pangong Lake.</p>
+          <div class="card-highlights">
+            <span class="h-tag">Khardung La</span>
+            <span class="h-tag">Pangong Glamping</span>
+            <span class="h-tag">Nubra Safari</span>
+          </div>
+          <div class="card-actions">
+            <button type="button" class="btn-card-itinerary" data-slug="ladakh">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              View Itinerary
+            </button>
+            <button type="button" class="btn-card-book" data-tour="Ladakh: High Desert Stargazing" data-date="Nov 02, 2026">
+              Book Journey
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Rajasthan -->
+      <article class="dcard reveal" data-category="domestic" data-slug="rajasthan">
+        <img src="https://images.unsplash.com/photo-1638904998527-a451c1fbd1cb?q=80&w=1100&auto=format&fit=crop" alt="Rajasthan" loading="lazy"/>
+        <div class="card-top-tags">
+          <span class="tag">Heritage</span>
+          <span class="badge-special">Royal Palaces</span>
+        </div>
+        <div class="body">
+          <span class="price">From ₹74,000</span>
+          <span class="st">Rajasthan</span>
+          <h3>Rajasthan: Palaces &amp; Golden Dunes</h3>
+          <div class="card-dep-row">
+            <span>9 Days 8 Nights</span>
+            <span class="card-dep-pill">Next: Oct 24, 2026 · 8 seats</span>
+          </div>
+          <p class="desc">Udaipur Lake Palace private cruises, Jodhpur Mehrangarh fort and luxury desert tent camps.</p>
+          <div class="card-highlights">
+            <span class="h-tag">Udaipur Pichola</span>
+            <span class="h-tag">Thar Desert Camp</span>
+            <span class="h-tag">Mehrangarh VIP</span>
+          </div>
+          <div class="card-actions">
+            <button type="button" class="btn-card-itinerary" data-slug="rajasthan">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              View Itinerary
+            </button>
+            <button type="button" class="btn-card-book" data-tour="Rajasthan: Palaces & Golden Dunes" data-date="Oct 24, 2026">
+              Book Journey
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Kerala -->
+      <article class="dcard reveal" data-category="domestic" data-slug="kerala">
+        <img src="https://images.unsplash.com/photo-1704365159747-1f7b8913044f?q=80&w=1100&auto=format&fit=crop" alt="Kerala" loading="lazy"/>
+        <div class="card-top-tags">
+          <span class="tag">Backwaters</span>
+          <span class="badge-special">Wellness &amp; Slow Travel</span>
+        </div>
+        <div class="body">
+          <span class="price">From ₹52,000</span>
+          <span class="st">Kerala</span>
+          <h3>Kerala: Backwaters &amp; Mist Trails</h3>
+          <div class="card-dep-row">
+            <span>7 Days 6 Nights</span>
+            <span class="card-dep-pill">Next: Nov 12, 2026 · 3 seats</span>
+          </div>
+          <p class="desc">Private Alleppey houseboat drift, misty Munnar tea plantations and Ayurvedic therapy.</p>
+          <div class="card-highlights">
+            <span class="h-tag">Private Kettuvallam</span>
+            <span class="h-tag">Munnar High Tea</span>
+            <span class="h-tag">Ayurvedic Spa</span>
+          </div>
+          <div class="card-actions">
+            <button type="button" class="btn-card-itinerary" data-slug="kerala">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              View Itinerary
+            </button>
+            <button type="button" class="btn-card-book" data-tour="Kerala: Backwaters & Mist Trails" data-date="Nov 12, 2026">
+              Book Journey
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Goa -->
+      <article class="dcard reveal" data-category="domestic" data-slug="goa">
+        <img src="https://images.unsplash.com/photo-1624554305378-0f440dd3a8c1?q=80&w=1100&auto=format&fit=crop" alt="Goa" loading="lazy"/>
+        <div class="card-top-tags">
+          <span class="tag">Coastal</span>
+          <span class="badge-special">Colonial Splendour</span>
+        </div>
+        <div class="body">
+          <span class="price">From ₹36,000</span>
+          <span class="st">Goa</span>
+          <h3>Goa: Latin Quarter &amp; Catamaran</h3>
+          <div class="card-dep-row">
+            <span>5 Days 4 Nights</span>
+            <span class="card-dep-pill">Next: Nov 20, 2026 · 7 seats</span>
+          </div>
+          <p class="desc">Fontainhas pastel mansions, private sunset yacht sailing and secluded South Goa beaches.</p>
+          <div class="card-highlights">
+            <span class="h-tag">Private Yacht</span>
+            <span class="h-tag">Fontainhas Walk</span>
+            <span class="h-tag">Spice Estate</span>
+          </div>
+          <div class="card-actions">
+            <button type="button" class="btn-card-itinerary" data-slug="goa">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              View Itinerary
+            </button>
+            <button type="button" class="btn-card-book" data-tour="Goa: Latin Quarter & Catamaran" data-date="Nov 20, 2026">
+              Book Journey
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Andaman -->
+      <article class="dcard reveal" data-category="domestic" data-slug="andaman">
+        <img src="https://images.unsplash.com/photo-1589136777351-fdc9c9cab193?q=80&w=1100&auto=format&fit=crop" alt="Andaman" loading="lazy"/>
+        <div class="card-top-tags">
+          <span class="tag">Islands</span>
+          <span class="badge-special">Coral Waters</span>
+        </div>
+        <div class="body">
+          <span class="price">From ₹32,500</span>
+          <span class="st">Andaman &amp; Nicobar</span>
+          <h3>Andaman: Azure Lagoons &amp; Reefs</h3>
+          <div class="card-dep-row">
+            <span>5 Days 4 Nights</span>
+            <span class="card-dep-pill">Next: Dec 05, 2026 · 5 seats</span>
+          </div>
+          <p class="desc">Radhanagar sunsets, Havelock catamaran cruises and snorkelling live coral gardens.</p>
+          <div class="card-highlights">
+            <span class="h-tag">Radhanagar Beach</span>
+            <span class="h-tag">Coral Reefs</span>
+            <span class="h-tag">Makruzz Catamaran</span>
+          </div>
+          <div class="card-actions">
+            <button type="button" class="btn-card-itinerary" data-slug="andaman">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              View Itinerary
+            </button>
+            <button type="button" class="btn-card-book" data-tour="Andaman: Azure Lagoons & Reefs" data-date="Dec 05, 2026">
+              Book Journey
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Lakshadweep -->
+      <article class="dcard reveal" data-category="domestic" data-slug="lakshadweep">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1100&auto=format&fit=crop" alt="Lakshadweep" loading="lazy"/>
+        <div class="card-top-tags">
+          <span class="tag">Tropical</span>
+          <span class="badge-special">Pristine Paradise</span>
+        </div>
+        <div class="body">
+          <span class="price">From ₹29,500</span>
+          <span class="st">Lakshadweep</span>
+          <h3>Lakshadweep: Agatti &amp; Bangaram</h3>
+          <div class="card-dep-row">
+            <span>4 Nights 5 Days</span>
+            <span class="card-dep-pill">Next: Dec 18, 2026 · 2 seats</span>
+          </div>
+          <p class="desc">Uninhabited coral atolls, glass-bottom boat safaris and sea turtle lagoons.</p>
+          <div class="card-highlights">
+            <span class="h-tag">Bangaram Atoll</span>
+            <span class="h-tag">Turtle Lagoon</span>
+            <span class="h-tag">Agatti Reef</span>
+          </div>
+          <div class="card-actions">
+            <button type="button" class="btn-card-itinerary" data-slug="lakshadweep">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              View Itinerary
+            </button>
+            <button type="button" class="btn-card-book" data-tour="Lakshadweep: Agatti & Bangaram" data-date="Dec 18, 2026">
+              Book Journey
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sikkim -->
+      <article class="dcard reveal" data-category="himalayan" data-slug="sikkim">
+        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1100&auto=format&fit=crop" alt="Sikkim" loading="lazy"/>
+        <div class="card-top-tags">
+          <span class="tag">North East</span>
+          <span class="badge-special">Mercury Signature</span>
+        </div>
+        <div class="body">
+          <span class="price">From ₹24,500</span>
+          <span class="st">Sikkim</span>
+          <h3>Sikkim &amp; Gangtok: Mountain Mystique</h3>
+          <div class="card-dep-row">
+            <span>5 Nights 6 Days</span>
+            <span class="card-dep-pill">Next: Oct 20, 2026 · 9 seats</span>
+          </div>
+          <p class="desc">Sacred glacial Tsomgo lake at 12,400ft, Rumtek monastery chants and Ravangla Buddha park.</p>
+          <div class="card-highlights">
+            <span class="h-tag">Tsomgo Lake</span>
+            <span class="h-tag">Rumtek Gompa</span>
+            <span class="h-tag">Ravangla Park</span>
+          </div>
+          <div class="card-actions">
+            <button type="button" class="btn-card-itinerary" data-slug="sikkim">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              View Itinerary
+            </button>
+            <button type="button" class="btn-card-book" data-tour="Sikkim & Gangtok: Mountain Mystique" data-date="Oct 20, 2026">
+              Book Journey
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Darjeeling & Dooars -->
+      <article class="dcard reveal" data-category="himalayan" data-slug="darjeeling-dooars">
+        <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=1100&auto=format&fit=crop" alt="Darjeeling" loading="lazy"/>
+        <div class="card-top-tags">
+          <span class="tag">North Bengal</span>
+          <span class="badge-special">Himalayan Heritage</span>
+        </div>
+        <div class="body">
+          <span class="price">From ₹20,500</span>
+          <span class="st">West Bengal</span>
+          <h3>Darjeeling &amp; Dooars: Tea &amp; Rhino Safari</h3>
+          <div class="card-dep-row">
+            <span>5 Nights 6 Days</span>
+            <span class="card-dep-pill">Next: Oct 28, 2026 · 5 seats</span>
+          </div>
+          <p class="desc">Tiger Hill Kanchenjunga sunrise, UNESCO Toy Train ride and Jaldapara one-horned rhino jeep safari.</p>
+          <div class="card-highlights">
+            <span class="h-tag">Tiger Hill Sunrise</span>
+            <span class="h-tag">DHR Toy Train</span>
+            <span class="h-tag">Jaldapara Rhino</span>
+          </div>
+          <div class="card-actions">
+            <button type="button" class="btn-card-itinerary" data-slug="darjeeling-dooars">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              View Itinerary
+            </button>
+            <button type="button" class="btn-card-book" data-tour="Darjeeling & Dooars: Tea & Rhino Safari" data-date="Oct 28, 2026">
+              Book Journey
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Seven Sisters & Meghalaya -->
+      <article class="dcard reveal" data-category="himalayan" data-slug="meghalaya">
+        <img src="https://images.unsplash.com/photo-1589983846997-04788035bc83?q=80&w=1100&auto=format&fit=crop" alt="Meghalaya" loading="lazy"/>
+        <div class="card-top-tags">
+          <span class="tag">North East</span>
+          <span class="badge-special">Epic Explorer</span>
+        </div>
+        <div class="body">
+          <span class="price">From ₹32,500</span>
+          <span class="st">Meghalaya &amp; Assam</span>
+          <h3>Seven Sisters: Living Root Bridges</h3>
+          <div class="card-dep-row">
+            <span>7 Nights 8 Days</span>
+            <span class="card-dep-pill">Next: Nov 08, 2026 · 7 seats</span>
+          </div>
+          <p class="desc">Double-decker living root bridges, crystal clear Dawki river boating and Kaziranga rhino kingdom.</p>
+          <div class="card-highlights">
+            <span class="h-tag">Root Bridges</span>
+            <span class="h-tag">Dawki Umngot</span>
+            <span class="h-tag">Kaziranga Safari</span>
+          </div>
+          <div class="card-actions">
+            <button type="button" class="btn-card-itinerary" data-slug="meghalaya">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              View Itinerary
+            </button>
+            <button type="button" class="btn-card-book" data-tour="Seven Sisters: Living Root Bridges" data-date="Nov 08, 2026">
+              Book Journey
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Bhutan -->
+      <article class="dcard reveal" data-category="international" data-slug="bhutan">
+        <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1100&auto=format&fit=crop" alt="Bhutan" loading="lazy"/>
+        <div class="card-top-tags">
+          <span class="tag">International</span>
+          <span class="badge-special">Bestseller</span>
+        </div>
+        <div class="body">
+          <span class="price">From ₹42,500</span>
+          <span class="st">Bhutan</span>
+          <h3>Bhutan: Land of Thunder Dragon</h3>
+          <div class="card-dep-row">
+            <span>5 Nights 6 Days</span>
+            <span class="card-dep-pill">Next: Oct 22, 2026 · 6 seats</span>
+          </div>
+          <p class="desc">Paro Taktsang Tiger's Nest cliffside pilgrimage, Punakha Dzong palace and Thimphu giant Buddha.</p>
+          <div class="card-highlights">
+            <span class="h-tag">Tiger's Nest Hike</span>
+            <span class="h-tag">Punakha Dzong</span>
+            <span class="h-tag">Visa &amp; SDF Included</span>
+          </div>
+          <div class="card-actions">
+            <button type="button" class="btn-card-itinerary" data-slug="bhutan">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              View Itinerary
+            </button>
+            <button type="button" class="btn-card-book" data-tour="Bhutan: Land of Thunder Dragon" data-date="Oct 22, 2026">
+              Book Journey
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Nepal -->
+      <article class="dcard reveal" data-category="international" data-slug="nepal">
+        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1100&auto=format&fit=crop" alt="Nepal" loading="lazy"/>
+        <div class="card-top-tags">
+          <span class="tag">International</span>
+          <span class="badge-special">Spiritual &amp; Scenic</span>
+        </div>
+        <div class="body">
+          <span class="price">From ₹35,900</span>
+          <span class="st">Nepal</span>
+          <h3>Nepal: Kathmandu &amp; Annapurna</h3>
+          <div class="card-dep-row">
+            <span>6 Nights 7 Days</span>
+            <span class="card-dep-pill">Next: Nov 04, 2026 · 4 seats</span>
+          </div>
+          <p class="desc">Sarangkot Annapurna golden sunrise, serene Phewa lake boating and ancient Kathmandu durbar squares.</p>
+          <div class="card-highlights">
+            <span class="h-tag">Annapurna Sunrise</span>
+            <span class="h-tag">Phewa Boating</span>
+            <span class="h-tag">Pashupatinath</span>
+          </div>
+          <div class="card-actions">
+            <button type="button" class="btn-card-itinerary" data-slug="nepal">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              View Itinerary
+            </button>
+            <button type="button" class="btn-card-book" data-tour="Nepal: Kathmandu & Annapurna" data-date="Nov 04, 2026">
+              Book Journey
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sri Lanka -->
+      <article class="dcard reveal" data-category="international" data-slug="sri-lanka">
+        <img src="https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=1100&auto=format&fit=crop" alt="Sri Lanka" loading="lazy"/>
+        <div class="card-top-tags">
+          <span class="tag">International</span>
+          <span class="badge-special">Curated Trail</span>
+        </div>
+        <div class="body">
+          <span class="price">From ₹48,000</span>
+          <span class="st">Sri Lanka</span>
+          <h3>Sri Lanka: Ramayana &amp; Tea Hills</h3>
+          <div class="card-dep-row">
+            <span>6 Nights 7 Days</span>
+            <span class="card-dep-pill">Next: Nov 15, 2026 · 8 seats</span>
+          </div>
+          <p class="desc">Sigiriya 5th-century Lion Rock, Kandy sacred tooth temple, Nuwara Eliya misty hills and Galle fort.</p>
+          <div class="card-highlights">
+            <span class="h-tag">Sigiriya Fortress</span>
+            <span class="h-tag">Blue Mountain Train</span>
+            <span class="h-tag">Galle Dutch Fort</span>
+          </div>
+          <div class="card-actions">
+            <button type="button" class="btn-card-itinerary" data-slug="sri-lanka">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              View Itinerary
+            </button>
+            <button type="button" class="btn-card-book" data-tour="Sri Lanka: Ramayana & Tea Hills" data-date="Nov 15, 2026">
+              Book Journey
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Bali -->
+      <article class="dcard reveal" data-category="international" data-slug="bali">
+        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1100&auto=format&fit=crop" alt="Bali" loading="lazy"/>
+        <div class="card-top-tags">
+          <span class="tag">International</span>
+          <span class="badge-special">Island Sanctuary</span>
+        </div>
+        <div class="body">
+          <span class="price">From ₹42,500</span>
+          <span class="st">Indonesia</span>
+          <h3>Bali: Emerald Terraces &amp; Villas</h3>
+          <div class="card-dep-row">
+            <span>5 Nights 6 Days</span>
+            <span class="card-dep-pill">Next: Dec 02, 2026 · 6 seats</span>
+          </div>
+          <p class="desc">Ubud rice terrace swing, Nusa Penida Kelingking cliff and Uluwatu cliff temple Kecak fire dance.</p>
+          <div class="card-highlights">
+            <span class="h-tag">Private Pool Villa</span>
+            <span class="h-tag">Nusa Penida Boat</span>
+            <span class="h-tag">Ubud Jungle Swing</span>
+          </div>
+          <div class="card-actions">
+            <button type="button" class="btn-card-itinerary" data-slug="bali">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              View Itinerary
+            </button>
+            <button type="button" class="btn-card-book" data-tour="Bali: Emerald Terraces & Villas" data-date="Dec 02, 2026">
+              Book Journey
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Vietnam -->
+      <article class="dcard reveal" data-category="international" data-slug="vietnam">
+        <img src="https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=1100&auto=format&fit=crop" alt="Vietnam" loading="lazy"/>
+        <div class="card-top-tags">
+          <span class="tag">International</span>
+          <span class="badge-special">Exotic Asia</span>
+        </div>
+        <div class="body">
+          <span class="price">From ₹75,000</span>
+          <span class="st">Vietnam</span>
+          <h3>Vietnam: Ha Long Cruise &amp; Hoi An</h3>
+          <div class="card-dep-row">
+            <span>6 Nights 7 Days</span>
+            <span class="card-dep-pill">Next: Nov 24, 2026 · 5 seats</span>
+          </div>
+          <p class="desc">Overnight 5-star Ha Long Bay luxury cruise, Ba Na Hills Golden Hand Bridge and Hoi An lantern streets.</p>
+          <div class="card-highlights">
+            <span class="h-tag">Ha Long 5★ Cruise</span>
+            <span class="h-tag">Golden Bridge Hands</span>
+            <span class="h-tag">Hoi An Lanterns</span>
+          </div>
+          <div class="card-actions">
+            <button type="button" class="btn-card-itinerary" data-slug="vietnam">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              View Itinerary
+            </button>
+            <button type="button" class="btn-card-book" data-tour="Vietnam: Ha Long Cruise & Hoi An" data-date="Nov 24, 2026">
+              Book Journey
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Japan -->
+      <article class="dcard reveal" data-category="international" data-slug="japan">
+        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1100&auto=format&fit=crop" alt="Japan" loading="lazy"/>
+        <div class="card-top-tags">
+          <span class="tag">International</span>
+          <span class="badge-special">Premium Luxury</span>
+        </div>
+        <div class="body">
+          <span class="price">From ₹185,000</span>
+          <span class="st">Japan</span>
+          <h3>Japan: Tokyo, Mount Fuji &amp; Kyoto</h3>
+          <div class="card-dep-row">
+            <span>6 Nights 7 Days</span>
+            <span class="card-dep-pill">Next: Mar 24, 2027 · 10 seats</span>
+          </div>
+          <p class="desc">Shinkansen bullet train speed, Mount Fuji 5th station views and Kyoto bamboo groves during Sakura.</p>
+          <div class="card-highlights">
+            <span class="h-tag">Bullet Train Pass</span>
+            <span class="h-tag">Mount Fuji 5th Stn</span>
+            <span class="h-tag">Kyoto Torii Gates</span>
+          </div>
+          <div class="card-actions">
+            <button type="button" class="btn-card-itinerary" data-slug="japan">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              View Itinerary
+            </button>
+            <button type="button" class="btn-card-book" data-tour="Japan: Tokyo, Mount Fuji & Kyoto" data-date="Mar 24, 2027">
+              Book Journey
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Swiss & Paris -->
+      <article class="dcard reveal" data-category="international" data-slug="europe">
+        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1100&auto=format&fit=crop" alt="Europe" loading="lazy"/>
+        <div class="card-top-tags">
+          <span class="tag">Europe</span>
+          <span class="badge-special">Grand Luxury</span>
+        </div>
+        <div class="body">
+          <span class="price">From ₹390,000</span>
+          <span class="st">France &amp; Switzerland</span>
+          <h3>Swiss Alps &amp; Paris Elegance</h3>
+          <div class="card-dep-row">
+            <span>6 Nights 7 Days</span>
+            <span class="card-dep-pill">Next: Apr 15, 2027 · 8 seats</span>
+          </div>
+          <p class="desc">Paris Eiffel Tower &amp; Seine champagne cruise, TGV to Lucerne and Mount Titlis revolving cable car.</p>
+          <div class="card-highlights">
+            <span class="h-tag">Eiffel Skip-the-Line</span>
+            <span class="h-tag">Mount Titlis Rotair</span>
+            <span class="h-tag">TGV 1st Class</span>
+          </div>
+          <div class="card-actions">
+            <button type="button" class="btn-card-itinerary" data-slug="europe">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              View Itinerary
+            </button>
+            <button type="button" class="btn-card-book" data-tour="Swiss Alps & Paris Elegance" data-date="Apr 15, 2027">
+              Book Journey
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sundarban -->
+      <article class="dcard reveal" data-category="expedition" data-slug="sundarban">
+        <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?q=80&w=1100&auto=format&fit=crop" alt="Sundarban" loading="lazy"/>
+        <div class="card-top-tags">
+          <span class="tag">Expedition</span>
+          <span class="badge-special">Wildlife Safari</span>
+        </div>
+        <div class="body">
+          <span class="price">From ₹7,500</span>
+          <span class="st">West Bengal</span>
+          <h3>Sundarban: Royal Bengal Tiger Safari</h3>
+          <div class="card-dep-row">
+            <span>2 Nights 3 Days</span>
+            <span class="card-dep-pill">Next: Oct 16, 2026 · 12 seats</span>
+          </div>
+          <p class="desc">Deep mangrove creek boat safari tracking wild tigers, Dobanki canopy walk and river delta sunsets.</p>
+          <div class="card-highlights">
+            <span class="h-tag">Tiger Watchtowers</span>
+            <span class="h-tag">Creek Motorboat</span>
+            <span class="h-tag">Jungle Eco-Resort</span>
+          </div>
+          <div class="card-actions">
+            <button type="button" class="btn-card-itinerary" data-slug="sundarban">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              View Itinerary
+            </button>
+            <button type="button" class="btn-card-book" data-tour="Sundarban: Royal Bengal Tiger Safari" data-date="Oct 16, 2026">
+              Book Journey
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Durga Puja -->
+      <article class="dcard reveal" data-category="expedition" data-slug="durga-puja">
+        <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?q=80&w=1100&auto=format&fit=crop" alt="Durga Puja" loading="lazy"/>
+        <div class="card-top-tags">
+          <span class="tag">Culture</span>
+          <span class="badge-special">UNESCO Trail</span>
+        </div>
+        <div class="body">
+          <span class="price">From ₹6,500</span>
+          <span class="st">West Bengal</span>
+          <h3>Kolkata Durga Puja Royal Parikrama</h3>
+          <div class="card-dep-row">
+            <span>2 Nights 3 Days</span>
+            <span class="card-dep-pill">Next: Oct 18, 2026 · 4 seats</span>
+          </div>
+          <p class="desc">VIP pass to 250+ year old aristocratic Bonedi Bari rajbari pujas, Hooghly river cruiser and Dhaak rhythms.</p>
+          <div class="card-highlights">
+            <span class="h-tag">Rajbari Heritage</span>
+            <span class="h-tag">VIP Pandal Access</span>
+            <span class="h-tag">Hooghly River Cruise</span>
+          </div>
+          <div class="card-actions">
+            <button type="button" class="btn-card-itinerary" data-slug="durga-puja">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              View Itinerary
+            </button>
+            <button type="button" class="btn-card-book" data-tour="Kolkata Durga Puja Royal Parikrama" data-date="Oct 18, 2026">
+              Book Journey
+            </button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- UPCOMING FIXED DEPARTURES (Mercury Tour Operator Standout Feature) -->
+<section class="departures-sec" id="departures">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div class="head">
+        <span class="eyebrow">Guaranteed Schedules</span>
+        <h2>Upcoming Fixed Group Departures 2026–2027</h2>
+        <p>Small group departures with verified luxury stays, dedicated tour concierges, and guaranteed departure dates.</p>
+      </div>
+      <a href="#cta" class="link-arrow" id="btnRequestCustomDate">
+        <span>Request Custom Dates</span>
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="departures-table-wrap reveal">
+      <table class="departures-table">
+        <thead>
+          <tr>
+            <th>Tour Package &amp; Region</th>
+            <th>Departure Date</th>
+            <th>Duration</th>
+            <th>Status</th>
+            <th>Seats Left</th>
+            <th>Price / Person</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="departuresTableBody">
+          <!-- Row 1: Kashmir -->
+          <tr>
+            <td>
+              <div class="dep-tour">
+                <img src="https://images.unsplash.com/photo-1715457573748-8e8a70b2c1be?q=80&w=120&auto=format&fit=crop" class="dep-thumb" alt="Kashmir"/>
+                <div>
+                  <span class="dep-tour-name">Kashmir: Crown of the Himalayas</span>
+                  <span class="dep-tour-region">Jammu &amp; Kashmir</span>
+                </div>
+              </div>
+            </td>
+            <td><b>Oct 15, 2026</b></td>
+            <td>6 Days 5 Nights</td>
+            <td><span class="status-pill status-guaranteed">● Guaranteed Departure</span></td>
+            <td><b>6 seats</b></td>
+            <td><b style="color:var(--primary);">₹48,000</b></td>
+            <td><button type="button" class="btn-dep-book" data-tour="Kashmir: Crown of Himalayas" data-date="Oct 15, 2026">Reserve Seat</button></td>
+          </tr>
+
+          <!-- Row 2: Sundarban -->
+          <tr>
+            <td>
+              <div class="dep-tour">
+                <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?q=80&w=120&auto=format&fit=crop" class="dep-thumb" alt="Sundarban"/>
+                <div>
+                  <span class="dep-tour-name">Sundarban Royal Bengal Tiger Safari</span>
+                  <span class="dep-tour-region">West Bengal Delta</span>
+                </div>
+              </div>
+            </td>
+            <td><b>Oct 16, 2026</b></td>
+            <td>2 Nights 3 Days</td>
+            <td><span class="status-pill status-guaranteed">● Guaranteed Departure</span></td>
+            <td><b>12 seats</b></td>
+            <td><b style="color:var(--primary);">₹7,500</b></td>
+            <td><button type="button" class="btn-dep-book" data-tour="Sundarban Royal Bengal Tiger Safari" data-date="Oct 16, 2026">Reserve Seat</button></td>
+          </tr>
+
+          <!-- Row 3: Durga Puja -->
+          <tr>
+            <td>
+              <div class="dep-tour">
+                <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?q=80&w=120&auto=format&fit=crop" class="dep-thumb" alt="Durga Puja"/>
+                <div>
+                  <span class="dep-tour-name">Kolkata Durga Puja Royal Parikrama</span>
+                  <span class="dep-tour-region">Kolkata Heritage</span>
+                </div>
+              </div>
+            </td>
+            <td><b>Oct 18, 2026</b></td>
+            <td>2 Nights 3 Days</td>
+            <td><span class="status-pill status-few">● Only 4 Seats Left</span></td>
+            <td><b>4 seats</b></td>
+            <td><b style="color:var(--primary);">₹6,500</b></td>
+            <td><button type="button" class="btn-dep-book" data-tour="Kolkata Durga Puja Royal Parikrama" data-date="Oct 18, 2026">Reserve Seat</button></td>
+          </tr>
+
+          <!-- Row 4: Sikkim -->
+          <tr>
+            <td>
+              <div class="dep-tour">
+                <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=120&auto=format&fit=crop" class="dep-thumb" alt="Sikkim"/>
+                <div>
+                  <span class="dep-tour-name">Sikkim &amp; Gangtok: Mountain Mystique</span>
+                  <span class="dep-tour-region">Sikkim Himalayas</span>
+                </div>
+              </div>
+            </td>
+            <td><b>Oct 20, 2026</b></td>
+            <td>5 Nights 6 Days</td>
+            <td><span class="status-pill status-guaranteed">● Guaranteed Departure</span></td>
+            <td><b>9 seats</b></td>
+            <td><b style="color:var(--primary);">₹24,500</b></td>
+            <td><button type="button" class="btn-dep-book" data-tour="Sikkim & Gangtok: Mountain Mystique" data-date="Oct 20, 2026">Reserve Seat</button></td>
+          </tr>
+
+          <!-- Row 5: Bhutan -->
+          <tr>
+            <td>
+              <div class="dep-tour">
+                <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=120&auto=format&fit=crop" class="dep-thumb" alt="Bhutan"/>
+                <div>
+                  <span class="dep-tour-name">Bhutan: Kingdom of Thunder Dragon</span>
+                  <span class="dep-tour-region">Paro &amp; Thimphu</span>
+                </div>
+              </div>
+            </td>
+            <td><b>Oct 22, 2026</b></td>
+            <td>5 Nights 6 Days</td>
+            <td><span class="status-pill status-guaranteed">● Guaranteed Departure</span></td>
+            <td><b>6 seats</b></td>
+            <td><b style="color:var(--primary);">₹42,500</b></td>
+            <td><button type="button" class="btn-dep-book" data-tour="Bhutan: Land of Thunder Dragon" data-date="Oct 22, 2026">Reserve Seat</button></td>
+          </tr>
+
+          <!-- Row 6: Rajasthan -->
+          <tr>
+            <td>
+              <div class="dep-tour">
+                <img src="https://images.unsplash.com/photo-1638904998527-a451c1fbd1cb?q=80&w=120&auto=format&fit=crop" class="dep-thumb" alt="Rajasthan"/>
+                <div>
+                  <span class="dep-tour-name">Rajasthan: Palaces &amp; Golden Dunes</span>
+                  <span class="dep-tour-region">Udaipur, Jodhpur &amp; Thar</span>
+                </div>
+              </div>
+            </td>
+            <td><b>Oct 24, 2026</b></td>
+            <td>9 Days 8 Nights</td>
+            <td><span class="status-pill status-filling">● Filling Fast</span></td>
+            <td><b>8 seats</b></td>
+            <td><b style="color:var(--primary);">₹74,000</b></td>
+            <td><button type="button" class="btn-dep-book" data-tour="Rajasthan: Palaces & Golden Dunes" data-date="Oct 24, 2026">Reserve Seat</button></td>
+          </tr>
+
+          <!-- Row 7: Nepal -->
+          <tr>
+            <td>
+              <div class="dep-tour">
+                <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=120&auto=format&fit=crop" class="dep-thumb" alt="Nepal"/>
+                <div>
+                  <span class="dep-tour-name">Nepal: Kathmandu &amp; Annapurna Panorama</span>
+                  <span class="dep-tour-region">Kathmandu &amp; Pokhara</span>
+                </div>
+              </div>
+            </td>
+            <td><b>Nov 04, 2026</b></td>
+            <td>6 Nights 7 Days</td>
+            <td><span class="status-pill status-filling">● Filling Fast</span></td>
+            <td><b>4 seats</b></td>
+            <td><b style="color:var(--primary);">₹35,900</b></td>
+            <td><button type="button" class="btn-dep-book" data-tour="Nepal: Kathmandu & Annapurna" data-date="Nov 04, 2026">Reserve Seat</button></td>
+          </tr>
+
+          <!-- Row 8: Seven Sisters -->
+          <tr>
+            <td>
+              <div class="dep-tour">
+                <img src="https://images.unsplash.com/photo-1589983846997-04788035bc83?q=80&w=120&auto=format&fit=crop" class="dep-thumb" alt="Seven Sisters"/>
+                <div>
+                  <span class="dep-tour-name">Seven Sisters: Meghalaya &amp; Kaziranga</span>
+                  <span class="dep-tour-region">North East India</span>
+                </div>
+              </div>
+            </td>
+            <td><b>Nov 08, 2026</b></td>
+            <td>7 Nights 8 Days</td>
+            <td><span class="status-pill status-guaranteed">● Guaranteed Departure</span></td>
+            <td><b>7 seats</b></td>
+            <td><b style="color:var(--primary);">₹32,500</b></td>
+            <td><button type="button" class="btn-dep-book" data-tour="Seven Sisters: Living Root Bridges" data-date="Nov 08, 2026">Reserve Seat</button></td>
+          </tr>
+
+          <!-- Row 9: Sri Lanka -->
+          <tr>
+            <td>
+              <div class="dep-tour">
+                <img src="https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=120&auto=format&fit=crop" class="dep-thumb" alt="Sri Lanka"/>
+                <div>
+                  <span class="dep-tour-name">Sri Lanka: Ramayana Trail &amp; Galle</span>
+                  <span class="dep-tour-region">Kandy, Nuwara Eliya &amp; Galle</span>
+                </div>
+              </div>
+            </td>
+            <td><b>Nov 15, 2026</b></td>
+            <td>6 Nights 7 Days</td>
+            <td><span class="status-pill status-guaranteed">● Guaranteed Departure</span></td>
+            <td><b>8 seats</b></td>
+            <td><b style="color:var(--primary);">₹48,000</b></td>
+            <td><button type="button" class="btn-dep-book" data-tour="Sri Lanka: Ramayana & Tea Hills" data-date="Nov 15, 2026">Reserve Seat</button></td>
+          </tr>
+
+          <!-- Row 10: Bali -->
+          <tr>
+            <td>
+              <div class="dep-tour">
+                <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=120&auto=format&fit=crop" class="dep-thumb" alt="Bali"/>
+                <div>
+                  <span class="dep-tour-name">Bali: Emerald Terraces &amp; Pool Villas</span>
+                  <span class="dep-tour-region">Ubud &amp; Nusa Penida</span>
+                </div>
+              </div>
+            </td>
+            <td><b>Dec 02, 2026</b></td>
+            <td>5 Nights 6 Days</td>
+            <td><span class="status-pill status-guaranteed">● Guaranteed Departure</span></td>
+            <td><b>6 seats</b></td>
+            <td><b style="color:var(--primary);">₹42,500</b></td>
+            <td><button type="button" class="btn-dep-book" data-tour="Bali: Emerald Terraces & Villas" data-date="Dec 02, 2026">Reserve Seat</button></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 
 <!-- LANDSCAPES -->
 <section class="sec alt land drive" id="landscapes"><div class="sticky">
@@ -254,7 +1186,7 @@
   <div class="wrap">
     <div class="head reveal"><span class="eyebrow">Traveller stories</span><h2>Loved by people who don't travel lightly</h2></div>
   </div>
-  <div class="marquee" id="marquee"><div class="scard"><div class="stars">★★★★★</div><p class="q">Every morning we woke up somewhere more beautiful than the last. Nothing was rushed — it felt made for us.</p><div class="who"><div class="av">AR</div><div><b>Ananya &amp; Rohan</b><small>Mumbai · Honeymoon</small></div></div></div><div class="scard"><div class="stars">★★★★★</div><p class="q">Twenty years of travel and this was the most seamless trip I've taken. The forts at dawn, entirely to ourselves.</p><div class="who"><div class="av">JW</div><div><b>James Whitfield</b><small>London · Rajasthan</small></div></div></div><div class="scard"><div class="stars">★★★★★</div><p class="q">The houseboat crew felt like family by day two. I've never exhaled so completely on a holiday.</p><div class="who"><div class="av">MN</div><div><b>Meera Nair</b><small>Bengaluru · Kerala</small></div></div></div><div class="scard"><div class="stars">★★★★★</div><p class="q">Three generations, one flawless itinerary. Even the altitude was handled before we thought to worry.</p><div class="who"><div class="av">TK</div><div><b>The Kapoor Family</b><small>Delhi · Ladakh</small></div></div></div><div class="scard"><div class="stars">★★★★★</div><p class="q">I came for photographs and left with friendships. Saad opened doors I didn't know existed.</p><div class="who"><div class="av">SM</div><div><b>Sofia Marchetti</b><small>Milan · Kashmir</small></div></div></div><div class="scard"><div class="stars">★★★★★</div><p class="q">They found the quiet Goa I'd given up on. Empty beaches, a hidden taverna, a sunset I still dream about.</p><div class="who"><div class="av">AS</div><div><b>Arjun Sethi</b><small>Toronto · Goa</small></div></div></div><div class="scard"><div class="stars">★★★★★</div><p class="q">Every morning we woke up somewhere more beautiful than the last. Nothing was rushed — it felt made for us.</p><div class="who"><div class="av">AR</div><div><b>Ananya &amp; Rohan</b><small>Mumbai · Honeymoon</small></div></div></div><div class="scard"><div class="stars">★★★★★</div><p class="q">Twenty years of travel and this was the most seamless trip I've taken. The forts at dawn, entirely to ourselves.</p><div class="who"><div class="av">JW</div><div><b>James Whitfield</b><small>London · Rajasthan</small></div></div></div><div class="scard"><div class="stars">★★★★★</div><p class="q">The houseboat crew felt like family by day two. I've never exhaled so completely on a holiday.</p><div class="who"><div class="av">MN</div><div><b>Meera Nair</b><small>Bengaluru · Kerala</small></div></div></div><div class="scard"><div class="stars">★★★★★</div><p class="q">Three generations, one flawless itinerary. Even the altitude was handled before we thought to worry.</p><div class="who"><div class="av">TK</div><div><b>The Kapoor Family</b><small>Delhi · Ladakh</small></div></div></div><div class="scard"><div class="stars">★★★★★</div><p class="q">I came for photographs and left with friendships. Saad opened doors I didn't know existed.</p><div class="who"><div class="av">SM</div><div><b>Sofia Marchetti</b><small>Milan · Kashmir</small></div></div></div><div class="scard"><div class="stars">★★★★★</div><p class="q">They found the quiet Goa I'd given up on. Empty beaches, a hidden taverna, a sunset I still dream about.</p><div class="who"><div class="av">AS</div><div><b>Arjun Sethi</b><small>Toronto · Goa</small></div></div></div></div>
+  <div class="marquee" id="marquee"><div class="scard"><div class="stars">★★★★★</div><p class="q">Every morning we woke up somewhere more beautiful than the last. Nothing was rushed — it felt made for us.</p><div class="who"><div class="av">AR</div><div><b>Ananya &amp; Rohan</b><small>Mumbai · Honeymoon</small></div></div></div><div class="scard"><div class="stars">★★★★★</div><p class="q">Twenty years of travel and this was the most seamless trip I've taken. The forts at dawn, entirely to ourselves.</p><div class="who"><div class="av">JW</div><div><b>James Whitfield</b><small>London · Rajasthan</small></div></div></div><div class="scard"><div class="stars">★★★★★</div><p class="q">The houseboat crew felt like family by day two. I've never exhaled so completely on a holiday.</p><div class="who"><div class="av">MN</div><div><b>Meera Nair</b><small>Bengaluru · Kerala</small></div></div></div><div class="scard"><div class="stars">★★★★★</div><p class="q">Three generations, one flawless itinerary. Even the altitude was handled before we thought to worry.</p><div class="who"><div class="av">TK</div><div><b>The Kapoor Family</b><small>Delhi · Ladakh</small></div></div></div><div class="scard"><div class="stars">★★★★★</div><p class="q">I came for photographs and left with friendships. Tours&amp;Co opened doors I didn't know existed.</p><div class="who"><div class="av">SM</div><div><b>Sofia Marchetti</b><small>Milan · Kashmir</small></div></div></div><div class="scard"><div class="stars">★★★★★</div><p class="q">They found the quiet Goa I'd given up on. Empty beaches, a hidden taverna, a sunset I still dream about.</p><div class="who"><div class="av">AS</div><div><b>Arjun Sethi</b><small>Toronto · Goa</small></div></div></div><div class="scard"><div class="stars">★★★★★</div><p class="q">Every morning we woke up somewhere more beautiful than the last. Nothing was rushed — it felt made for us.</p><div class="who"><div class="av">AR</div><div><b>Ananya &amp; Rohan</b><small>Mumbai · Honeymoon</small></div></div></div><div class="scard"><div class="stars">★★★★★</div><p class="q">Twenty years of travel and this was the most seamless trip I've taken. The forts at dawn, entirely to ourselves.</p><div class="who"><div class="av">JW</div><div><b>James Whitfield</b><small>London · Rajasthan</small></div></div></div><div class="scard"><div class="stars">★★★★★</div><p class="q">The houseboat crew felt like family by day two. I've never exhaled so completely on a holiday.</p><div class="who"><div class="av">MN</div><div><b>Meera Nair</b><small>Bengaluru · Kerala</small></div></div></div><div class="scard"><div class="stars">★★★★★</div><p class="q">Three generations, one flawless itinerary. Even the altitude was handled before we thought to worry.</p><div class="who"><div class="av">TK</div><div><b>The Kapoor Family</b><small>Delhi · Ladakh</small></div></div></div><div class="scard"><div class="stars">★★★★★</div><p class="q">I came for photographs and left with friendships. Tours&amp;Co opened doors I didn't know existed.</p><div class="who"><div class="av">SM</div><div><b>Sofia Marchetti</b><small>Milan · Kashmir</small></div></div></div><div class="scard"><div class="stars">★★★★★</div><p class="q">They found the quiet Goa I'd given up on. Empty beaches, a hidden taverna, a sunset I still dream about.</p><div class="who"><div class="av">AS</div><div><b>Arjun Sethi</b><small>Toronto · Goa</small></div></div></div></div>
 </section>
 
 <!-- JOURNAL -->
@@ -287,7 +1219,7 @@
       <a class="brand" href="#top"><span class="mark">
         <img src="logo.png" />
         <!-- <svg viewBox="0 0 24 24" fill="none"><path d="M4 15c3-1 5-5 8-5s5 4 8 5" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/><path d="M12 3v3.5M12 17.5V21" stroke="#D4AF37" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="12" r="1.9" fill="#D4AF37"/> -->
-        </svg></span><span><b>Saad</b><small>Tour &amp; Travels</small></span></a>
+        </svg></span><span><b>Tours</b><small>&amp; Co</small></span></a>
       <p class="about">85 Rafi Ahmed Kidwai Road, Ground floor, kolkata 700013.</p>
       <div class="social">
         <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="1.6"/><circle cx="17" cy="7" r="1.1" fill="currentColor"/></svg></a>
@@ -299,14 +1231,56 @@
     <div><h4>Company</h4><ul><li><a href="#">About us</a></li><li><a href="#">The journal</a></li><li><a href="#">Traveller stories</a></li><li><a href="#">Careers</a></li><li><a href="#">Contact</a></li></ul></div>
     <div><h4>Support</h4><ul><li><a href="#">Plan a trip</a></li><li><a href="#">FAQs</a></li><li><a href="#">Booking terms</a></li><li><a href="#">Privacy</a></li></ul></div>
   </div>
-  <div class="foot-bottom"><span>© 2026 Saad Tour &amp; Travels. All rights reserved.</span><span>Made for travellers, in India.</span></div>
+  <div class="foot-bottom"><span>© 2026 Tours&amp;Co. All rights reserved.</span><span>Made for travellers, in India.</span></div>
 </div></footer>
 
-<a href="tel:6291929266" id="callFab" class="call-fab" aria-label="Call us at 6291929266">
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M6.62 10.79a15.53 15.53 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.02l-2.2 2.21z" fill="currentColor"/>
-  </svg>
-</a>
+<div class="floating-actions">
+  <a href="https://wa.me/916291929266?text=Hello%20Tours%26Co%2C%20I%20would%20like%20to%20inquire%20about%20a%20luxury%20tour." target="_blank" rel="noopener noreferrer" class="whatsapp-fab" aria-label="Chat with travel specialist on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm0 17.5c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.13 8.13 0 01-1.25-4.32c0-4.52 3.68-8.2 8.2-8.2 2.19 0 4.25.85 5.8 2.4a8.15 8.15 0 012.4 5.8c0 4.52-3.68 8.18-8.16 8.18zm4.49-6.13c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.53.06-.25-.13-1.04-.38-1.98-1.22-.73-.65-1.22-1.45-1.36-1.7-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.43 1.03 2.6c.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.61.19 1.16.17 1.6.1 1.49-.07 1.47-.61 1.68-.86.21-.25.21-.47.15-.6-.06-.13-.25-.23-.5-.36z"/>
+    </svg>
+  </a>
+  <a href="tel:6291929266" id="callFab" class="call-fab" aria-label="Call us at 6291929266">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6.62 10.79a15.53 15.53 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.02l-2.2 2.21z" fill="currentColor"/>
+    </svg>
+  </a>
+</div>
+
+<!-- DAY-BY-DAY ITINERARY MODAL -->
+<div class="modal-overlay" id="itineraryModal" role="dialog" aria-modal="true" aria-labelledby="itTitle">
+  <div class="itinerary-modal-card">
+    <button class="modal-close" id="itineraryClose" aria-label="Close dialog">&times;</button>
+    <div class="itinerary-hero" id="itHero">
+      <img id="itImg" src="" alt="Tour Hero Image"/>
+      <div class="itinerary-hero-in">
+        <div class="itinerary-hero-badges"><span class="tag" id="itCat">Category</span><span class="badge-special" id="itBadge">Curated</span></div>
+        <h2 id="itTitle" style="color:#fff;font-family:var(--font-serif);margin-top:6px;font-size:1.8rem;">Tour Title</h2>
+        <div class="itinerary-meta"><span id="itDur">7 Days / 6 Nights</span> · Starting at <b id="itPrice">₹45,000</b> per traveller</div>
+      </div>
+    </div>
+    <div class="itinerary-content">
+      <p id="itDesc" style="color:var(--text);font-size:0.95rem;line-height:1.65;margin-bottom:14px;"></p>
+      <div class="highlights-strip" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;" id="itHighlights"></div>
+      <h4 style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Day-by-Day Journey Itinerary
+      </h4>
+      <div class="itinerary-timeline" id="itTimeline"></div>
+      <div class="inclusions-box" style="margin-top:24px;">
+        <div class="inclusions-title">Curated Inclusions & Luxury Privileges</div>
+        <div class="inclusions-grid" id="itInclusions"></div>
+      </div>
+    </div>
+    <div class="itinerary-actions">
+      <div>
+        <span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-light);display:block;">All-Inclusive Quote</span>
+        <b style="font-size:1.25rem;color:var(--primary);font-family:var(--font-serif);" id="itBottomPrice">₹45,000</b>
+      </div>
+      <button type="button" class="btn btn-primary" id="btnItineraryBook">Book / Inquire This Tour</button>
+    </div>
+  </div>
+</div>
 
 <!-- JOURNEY CONSULTATION MODAL -->
 <div class="modal-overlay" id="inquiryModal" role="dialog" aria-modal="true" aria-labelledby="inquiryTitle">
@@ -330,13 +1304,26 @@
       <div class="field-group">
         <label for="iqDest">Destination</label>
         <select id="iqDest">
-          <option value="All India">Anywhere in India</option>
-          <option value="Kashmir">Kashmir (Himalayan Meadows)</option>
-          <option value="Ladakh">Ladakh (High Altitude Desert)</option>
-          <option value="Rajasthan">Rajasthan (Heritage & Lake Palaces)</option>
-          <option value="Kerala">Kerala (Backwaters & Mist)</option>
-          <option value="Goa">Goa (Arabian Sea & Sunsets)</option>
-          <option value="Meghalaya">Meghalaya (Root Bridges & Clouds)</option>
+          <option value="All India">Any Destination</option>
+          <option value="Kashmir (Himalayan Meadows)">Kashmir (Himalayan Meadows)</option>
+          <option value="Ladakh (High Altitude Desert)">Ladakh (High Altitude Desert)</option>
+          <option value="Rajasthan (Heritage & Lake Palaces)">Rajasthan (Heritage & Lake Palaces)</option>
+          <option value="Kerala (Backwaters & Mist)">Kerala (Backwaters & Mist)</option>
+          <option value="Goa (Arabian Sea & Sunsets)">Goa (Arabian Sea & Sunsets)</option>
+          <option value="Andaman (Coral Reefs & Azure Bays)">Andaman (Coral Reefs & Azure Bays)</option>
+          <option value="Lakshadweep (Lagoon Paradise)">Lakshadweep (Lagoon Paradise)</option>
+          <option value="Sikkim (Kanchenjunga & Monasteries)">Sikkim (Kanchenjunga & Monasteries)</option>
+          <option value="Darjeeling & Dooars (Tea & Foothills)">Darjeeling & Dooars (Tea & Foothills)</option>
+          <option value="Meghalaya & Seven Sisters">Meghalaya & Seven Sisters</option>
+          <option value="Bhutan (Kingdom in the Clouds)">Bhutan (Kingdom in the Clouds)</option>
+          <option value="Nepal (Kathmandu & Annapurna)">Nepal (Kathmandu & Annapurna)</option>
+          <option value="Sri Lanka (Ceylon Heritage & Coast)">Sri Lanka (Ceylon Heritage & Coast)</option>
+          <option value="Bali (Temples, Terraces & Ocean)">Bali (Temples, Terraces & Ocean)</option>
+          <option value="Vietnam (Ha Long Bay to Mekong)">Vietnam (Ha Long Bay to Mekong)</option>
+          <option value="Japan (Cherry Blossom & Golden Route)">Japan (Cherry Blossom & Golden Route)</option>
+          <option value="Swiss Alps & Paris Grandeur">Swiss Alps & Paris Grandeur</option>
+          <option value="Sundarban Royal Tiger Safari">Sundarban Royal Tiger Safari</option>
+          <option value="Kolkata Durga Puja & Cultural Heritage">Kolkata Durga Puja & Cultural Heritage</option>
         </select>
       </div>
       <div class="field-group">
@@ -416,6 +1403,7 @@
   <span id="toastMsg">Notification message</span>
 </div>
 
+<script src="js/tours-data.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
