@@ -1,13 +1,32 @@
 const url = require('node:url');
 const db = require('../db/database');
 
+function setCorsHeaders(res) {
+  if (typeof res.setHeader === 'function') {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  }
+}
+
 function sendJson(res, statusCode, data) {
-  res.writeHead(statusCode, {
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type'
-  });
+  setCorsHeaders(res);
+  if (typeof res.setHeader === 'function') {
+    res.setHeader('Content-Type', 'application/json');
+  }
+  if (typeof res.status === 'function' && typeof res.json === 'function') {
+    return res.status(statusCode).json(data);
+  }
+  if (typeof res.writeHead === 'function') {
+    res.writeHead(statusCode, {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type'
+    });
+  } else {
+    res.statusCode = statusCode;
+  }
   res.end(JSON.stringify(data));
 }
 
@@ -43,16 +62,16 @@ function parseBody(req) {
 module.exports = async function handler(req, res) {
   // CORS preflight
   if (req.method === 'OPTIONS') {
-    res.writeHead(204, {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type'
-    });
+    setCorsHeaders(res);
+    res.statusCode = 204;
     return res.end();
   }
 
-  const parsedUrl = url.parse(req.url, true);
-  const pathname = parsedUrl.pathname;
+  const host = (req.headers && (req.headers['x-forwarded-host'] || req.headers.host)) || 'localhost';
+  const protocol = (req.headers && req.headers['x-forwarded-proto']) || 'http';
+  const reqUrl = new URL(req.url, `${protocol}://${host}`);
+  const pathname = reqUrl.pathname;
+  const query = Object.fromEntries(reqUrl.searchParams.entries());
   const method = req.method;
 
   try {
@@ -64,7 +83,7 @@ module.exports = async function handler(req, res) {
     // 2. Destinations
     if (pathname === '/api/destinations' && method === 'GET') {
       const filter = {
-        category: parsedUrl.query.category
+        category: query.category
       };
       const destinations = db.getAllDestinations(filter);
       return sendJson(res, 200, destinations);
@@ -93,8 +112,8 @@ module.exports = async function handler(req, res) {
     if (pathname === '/api/inquiries') {
       if (method === 'GET') {
         const filter = {
-          status: parsedUrl.query.status,
-          destination: parsedUrl.query.destination
+          status: query.status,
+          destination: query.destination
         };
         const inquiries = db.getAllInquiries(filter);
         return sendJson(res, 200, inquiries);
@@ -198,10 +217,12 @@ module.exports = async function handler(req, res) {
     // 7. CSV Export
     if (pathname === '/api/export/inquiries.csv' && method === 'GET') {
       const csv = db.exportInquiriesCSV();
-      res.writeHead(200, {
-        'Content-Type': 'text/csv',
-        'Content-Disposition': 'attachment; filename="toursandco_inquiries_' + Date.now() + '.csv"'
-      });
+      setCorsHeaders(res);
+      if (typeof res.setHeader === 'function') {
+        res.setHeader('Content-Type', 'text/csv');
+        res.setHeader('Content-Disposition', 'attachment; filename="toursandco_inquiries_' + Date.now() + '.csv"');
+      }
+      res.statusCode = 200;
       return res.end(csv);
     }
 
@@ -211,3 +232,4 @@ module.exports = async function handler(req, res) {
     return sendError(res, 500, 'Internal server error: ' + err.message);
   }
 };
+
